@@ -1,0 +1,182 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial,
+    Sans-Serif;
+    margin-bottom: 3000px;
+}
+
+nav {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: purple;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    top: 5px;
+    border-radius: 0 0 5px 5px;
+    color: white;
+}
+
+nav h3 {
+  color: yellow;
+}
+
+nav h3 span {
+  color: lightblue;
+}
+
+hr {
+  margin-top: 65px;
+  margin-bottom: 5px;
+}
+
+.food-grid-container {
+  padding: 10px 5px 0 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.food-container {
+  border-radius: 5px;
+  background-color: lightgray;
+  
+}
+  
+.food-container img {
+  width: 100%;
+  overflow: hidden;
+  height: 15rem;
+}
+
+.details {
+  margin-bottom: 0;
+}
+
+.food-details p{
+  margin: 5px;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Arial, Sans-Serif;
+  
+}
+
+.food-name {
+  color: black;
+}
+.food-quantity-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 10px;
+  padding: 3px 5px 5px 5px;
+  gap: 4px;
+}
+
+.food-quantity-container p {
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Arial, Sans-Serif;
+  
+}
+
+.food-quantity-container select{
+  width: 17%;
+}
+
+.food-price {
+  color: blue;
+  margin: 5px;
+}
+
+.btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  
+}
+.add-food {
+  background-color: red;
+  height: 20px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  flex: 1;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;     /* number of lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.checkout-container {
+  display: flex;
+  background-color: white;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.5);
+  color: black;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  border-radius: 10px;
+  gap: 3px;
+  bottom: 20px;
+  right: 110px;
+  left: 110px;
+  font-size: 15px;
+  border: 2px solid wheat;
+}
+
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border: 2px solid black;
+  padding: 4px;
+  border-radius: 50px;
+  background: aqua;
+}
+
+.cart-number {
+  background: red;
+  color: white;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -3px;
+  right: -8px;
+  border-radius: 50%;
+}
+.checkout {
+  background: lightgreen;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.whatsapp-btn {
+  color: green;
+  border: none;
+  border-radius: 15px;
+  font-size: 14px;
+  padding: 2px;
+}
