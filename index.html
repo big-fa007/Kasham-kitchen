@@ -5,33 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kasham Kitchen</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+      
+      
+}
+    </style>
 </head>
 
 <body>
     <nav>
+      <div class="logo-container">
       <h3><span>K</span>ASHAM <span>K</span>ITCHEN</h3>
       <p>Order on Whatsapp</p>
-    </nav> 
-    <hr>
-
-<div class="food-grid-container" id="foods-container">
-  
-
-
-</div>
-<div class="checkout-container" >
-    
-    <div class="cart-container">
-      Cart 
+      </div>
+      <div class="cart-container">
+      <i class="fas fa-shopping-cart cart-icon"></i> 
         <div class="cart-number" id="cart-count">
       0
     </div>
     </div>
-    <div class="checkout">
-      <button class="whatsapp-btn" id="checkout".>Order on Whatsapp</button>
+    </nav> 
+    <hr>
+
+<div class="food-grid-container" id="foods-container"></div>
+
+
+<div class="checkout" id="checkout">
+      <button class="whatsapp-btn"><i class="fab fa-whatsapp Whatsapp-icon"></i>Checkout via Whatsapp</button>
     </div>
-  </div>
 
 <script type="module" src="app.js"></script>
-</body>
 </html>
+</body>
