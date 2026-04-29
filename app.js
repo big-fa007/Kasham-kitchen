@@ -1,10 +1,10 @@
 import {
   foods
 } from './food.js'
-
+const checkoutEl = document.getElementById("checkout")
 const cart = JSON.parse(localStorage.getItem('kashamCart')) || []
 
-  
+function render() {
   let foodHtml = ""
 
   foods.forEach((food) => {
@@ -25,51 +25,52 @@ const cart = JSON.parse(localStorage.getItem('kashamCart')) || []
     `
   })
   document.getElementById("foods-container").innerHTML = foodHtml
-
-  const checkoutEl = document.getElementById("checkout")
-  checkoutEl.style.display = "none"
-
-
-let initialQuantity = 0
-cart.forEach(item => initialQuantity += item.quantity)
-document.getElementById("cart-count").innerText = initialQuantity
-if (cart.length > 0) {
-  checkoutEl.style.display = "flex"
-} else {
-  checkoutEl.style.display = "none"
+  addTocartBtn()
+  updateCartQuantity()
 }
 
-document.querySelectorAll(".addBtn").forEach((button)=> {
-  button.addEventListener("click", ()=> {
-    const foodId = button.dataset.foodId
-
-    const matchingItem = cart.find(cartItem => foodId === cartItem.foodId)
-
-    if (matchingItem) {
-      matchingItem.quantity += 1
-    } else {
-      cart.push({
-        foodId,
-        quantity: 1
-      })
-    }
-    localStorage.setItem('kashamCart', JSON.stringify(cart))
+function displayCheckoutBtn() {
+  if (cart.length > 0) {
+    checkoutEl.style.display = "flex"
+  } else {
+    checkoutEl.style.display = "none"
+  }
+}
 
 
-    let cartQuantity = 0
-    cart.forEach((cartItem)=> {
-      cartQuantity += cartItem.quantity
+function addTocartBtn() {
+  document.querySelectorAll(".addBtn").forEach((button)=> {
+    button.addEventListener("click", ()=> {
+      const foodId = button.dataset.foodId
+
+      const matchingItem = cart.find(cartItem => foodId === cartItem.foodId)
+
+      if (matchingItem) {
+        matchingItem.quantity += 1
+      } else {
+        cart.push({
+          foodId,
+          quantity: 1
+        })
+      }
+      saveData()
+      updateCartQuantity()
     })
-
-    document.getElementById("cart-count").innerText =
-    cartQuantity
-
-    if (cart.length > 0) {
-      checkoutEl.style.display = "flex"
-    }
   })
-})
+}
 
+function saveData() {
+  localStorage.setItem('kashamCart', JSON.stringify(cart))
+}
+
+function updateCartQuantity() {
+  let cartQuantity = 0
+  cart.forEach((cartItem)=> {
+    cartQuantity += cartItem.quantity
+  })
+  document.getElementById("cart-count").innerText = cartQuantity
+  displayCheckoutBtn()
+}
 
 checkoutEl.addEventListener('click', ()=> {
   checkOut()
@@ -96,9 +97,14 @@ function checkOut() {
 
   window.open(`https://wa.me/2349130417725?text=${encodeURIComponent(message)}`,
     '_blank')
+  clearCart()
+}
 
+
+function clearCart() {
   cart.length = 0
   document.getElementById("cart-count").innerText = 0
   checkoutEl.style.display = "none"
   localStorage.removeItem('kashamCart')
 }
+render()
